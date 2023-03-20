@@ -115,4 +115,5 @@ export interface CEP_Config {
   };
   installModules?: string[];
   copyAssets?: string[];
+  copyAssetsPath?: any;
 }

@@ -240,6 +240,17 @@ export const cep = (opts: CepOptions) => {
           assets: cepConfig.copyAssets,
         });
       }
+      if (cepConfig.copyAssetsPath) {
+        for (var srcFile in cepConfig.copyAssetsPath) {
+            var final_src = src + (srcFile ? "/" : "") + srcFile;
+            var final_dest = dest + (cepConfig.copyAssetsPath[srcFile] ? "/" : "") + cepConfig.copyAssetsPath[srcFile];
+        	copyFiles({
+        	    src: final_src,
+        	    dest: final_dest,
+        	    assets: ["."],
+        	});
+        }
+      }
 
       console.log("FINISH");
       if (isPackage) {
